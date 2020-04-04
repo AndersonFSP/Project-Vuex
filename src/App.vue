@@ -3,6 +3,7 @@
 
     <div class="container">
         <AddTodo/>
+        <FilterTodos/>
         <Todos msg="Welcome to Your Vue.js App"/>
     </div>
 
@@ -12,12 +13,15 @@
 <script>
 import Todos from './components/Todos.vue'
 import  AddTodo from './components/AddTodo.vue'
+import  FilterTodos from './components/FilterTodos'
+
 
 export default {
   name: 'App',
   components: {
     Todos,
-    AddTodo
+    AddTodo,
+    FilterTodos
   }
 }
 </script>
