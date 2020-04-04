@@ -3,17 +3,34 @@
       <h3>Add Todo</h3>
       <div class="add">
           
-          <form>
+          <form @submit="onSubmit">
               <input type="text" v-model="title" placeholder="Add Todos...">
-              <input type="submit" value="submit">
+              <input type="submit" value="Submit">
           </form>
       </div>
   </div>
 </template>
 
 <script>
+import { mapActions} from 'vuex';
 export default {
     name: "AddTodo",
+    data(){
+        return {
+            title: ''
+        }
+    },
+    methods: {
+        ...mapActions(['addTodo']),
+        validation(title){
+            if(title) this.addTodo(title)
+            else alert('Todo não pode ser vazio')
+        },
+        onSubmit(e){
+            e.preventDefault();
+            this.validation(this.title) 
+        }
+    }
 }
 </script>
 
